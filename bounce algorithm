@@ -1,0 +1,46 @@
+var Rect1, Rect2;
+
+function setup() {
+  createCanvas(400,400);
+
+  Rect1 = createSprite(40,200,40,60);
+  Rect1.shapeColor = "green";
+  Rect1.debug = true;
+  
+  Rect1.velocityX = 5;
+
+  Rect2 = createSprite(350,200,60,30);
+  Rect2.shapeColor = "green";
+  Rect2.debug = true;
+
+  Rect2.velocityX = -5;
+}
+
+function draw() {
+  background(0); 
+  
+
+
+  console.log(Rect1.x - Rect1.x)
+
+  if (Rect2.x - Rect1.x < Rect1.width/2 + Rect2.width/2 
+    && Rect1.x - Rect2.x < Rect1.width/2 + Rect2.width/2 
+    && Rect2.y - Rect1.y < Rect1.height/2 +Rect2.height/2 
+    && Rect1.y - Rect2.y < Rect1.height/2 + Rect2.height/2  ) {
+     
+    Rect1.velocityX = Rect1.velocityX*-1;  
+
+    Rect2.velocityX = Rect2.velocityX*-1; 
+
+  }
+  
+  /*if (Rect1.x<20 || Rect2.x>370){
+   
+  Rect1.velocityX = Rect1.velocityX*-1;
+  
+  Rect2.velocityX = Rect2.velocityX*-1;
+
+  }*/
+
+  drawSprites();
+}
